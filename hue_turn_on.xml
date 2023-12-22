@@ -1,17 +1,8 @@
-<macro name="hue turn on" icon="PLAY">
+<macro name="turnon_hue" icon="LED_ON">
    <assert-service description="Ensure 932c32bd-0000-47a2-835a-a8d455b859dd service" uuid="932c32bd-0000-47a2-835a-a8d455b859dd">
       <assert-characteristic description="Ensure 932c32bd-0002-47a2-835a-a8d455b859dd characteristic" uuid="932c32bd-0002-47a2-835a-a8d455b859dd">
          <property name="WRITE" requirement="MANDATORY"/>
       </assert-characteristic>
-      <assert-characteristic description="Ensure 932c32bd-0007-47a2-835a-a8d455b859dd characteristic" uuid="932c32bd-0007-47a2-835a-a8d455b859dd">
-         <property name="NOTIFY" requirement="MANDATORY"/>
-      </assert-characteristic>
    </assert-service>
    <write description="Write 0x01 to 932c32bd-0002-47a2-835a-a8d455b859dd" characteristic-uuid="932c32bd-0002-47a2-835a-a8d455b859dd" service-uuid="932c32bd-0000-47a2-835a-a8d455b859dd" value="01" type="WRITE_REQUEST"/>
-   <wait-for-notification description="Wait for notification to 932c32bd-0007-47a2-835a-a8d455b859dd" characteristic-uuid="932c32bd-0007-47a2-835a-a8d455b859dd" service-uuid="932c32bd-0000-47a2-835a-a8d455b859dd">
-      <assert-value description="Assert value equals 0x0101010201E503026E01" value="0101010201E503026E01"/>
-   </wait-for-notification>
-   <wait-for-notification description="Wait for notification to 932c32bd-0007-47a2-835a-a8d455b859dd" characteristic-uuid="932c32bd-0007-47a2-835a-a8d455b859dd" service-uuid="932c32bd-0000-47a2-835a-a8d455b859dd">
-      <assert-value description="Assert value equals 0x0101010201FE03026E01" value="0101010201FE03026E01"/>
-   </wait-for-notification>
 </macro>
