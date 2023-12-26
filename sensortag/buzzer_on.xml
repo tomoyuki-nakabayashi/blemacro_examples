@@ -1,0 +1,12 @@
+<macro name="buzzer_on" icon="ALARM">
+   <assert-service description="Ensure f000aa64-0451-4000-b000-000000000000 service" uuid="f000aa64-0451-4000-b000-000000000000">
+      <assert-characteristic description="Ensure f000aa65-0451-4000-b000-000000000000 characteristic" uuid="f000aa65-0451-4000-b000-000000000000">
+         <property name="WRITE" requirement="MANDATORY"/>
+      </assert-characteristic>
+      <assert-characteristic description="Ensure f000aa66-0451-4000-b000-000000000000 characteristic" uuid="f000aa66-0451-4000-b000-000000000000">
+         <property name="WRITE" requirement="MANDATORY"/>
+      </assert-characteristic>
+   </assert-service>
+   <write description="Write 0x04 to f000aa65-0451-4000-b000-000000000000" characteristic-uuid="f000aa65-0451-4000-b000-000000000000" service-uuid="f000aa64-0451-4000-b000-000000000000" value="04" type="WRITE_REQUEST"/>
+   <write description="Write 0x01 to f000aa66-0451-4000-b000-000000000000" characteristic-uuid="f000aa66-0451-4000-b000-000000000000" service-uuid="f000aa64-0451-4000-b000-000000000000" value="01" type="WRITE_REQUEST"/>
+</macro>
